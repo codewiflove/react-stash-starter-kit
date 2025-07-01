@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
+import { ResponsiveSearch } from '@/components/ui/responsive-search';
 import { 
-  Search, 
   Menu, 
-  Mic, 
   Globe, 
   User, 
   Sun, 
@@ -38,6 +37,11 @@ export function GlassNav({ isDark, onThemeToggle }: GlassNavProps) {
     }
   };
 
+  const handleSearch = (query: string) => {
+    console.log('Search query:', query);
+    // Handle search logic here
+  };
+
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
@@ -58,26 +62,13 @@ export function GlassNav({ isDark, onThemeToggle }: GlassNavProps) {
           </div>
 
           {/* Search Bar */}
-          <div className="hidden md:flex items-center space-x-4 flex-1 max-w-md mx-8">
-            <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search experiences..."
-                className="w-full pl-10 pr-12 py-2 bg-white/10 dark:bg-black/20 border border-white/20 rounded-full backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-purple-500/50 text-gray-900 dark:text-white placeholder-gray-500"
-              />
-              <Button
-                size="sm"
-                variant="ghost"
-                className={cn(
-                  "absolute right-2 top-1/2 transform -translate-y-1/2 h-6 w-6 p-0 rounded-full",
-                  isVoiceEnabled ? "bg-purple-500 text-white" : "text-gray-400 hover:text-purple-500"
-                )}
-                onClick={handleVoiceToggle}
-              >
-                <Mic className="w-3 h-3" />
-              </Button>
-            </div>
+          <div className="hidden md:flex items-center justify-center flex-1 max-w-4xl mx-8">
+            <ResponsiveSearch 
+              placeholder="Search the future..."
+              onSearch={handleSearch}
+              onVoiceToggle={handleVoiceToggle}
+              isVoiceEnabled={isVoiceEnabled}
+            />
           </div>
 
           {/* Navigation Items */}

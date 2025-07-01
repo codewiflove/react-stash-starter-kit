@@ -13,6 +13,7 @@ import { ImmersiveScrollSection } from '@/components/ui/immersive-scroll-section
 import { NeoBrutalistText } from '@/components/ui/neo-brutalist-text';
 import { SkeletonLoader } from '@/components/ui/skeleton-loader';
 import { GestureHandler } from '@/components/ui/gesture-handler';
+import { GlowingText } from '@/components/ui/glowing-text';
 import { cn } from '@/lib/utils';
 
 const Index = () => {
@@ -177,14 +178,26 @@ const Index = () => {
                 <Database className="w-12 h-12 text-white" />
               </div>
               
-              <NeoBrutalistText variant="h1" color="accent" className="animate-gradient bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600">
+              <GlowingText 
+                variant="headline" 
+                color="purple" 
+                intensity="high"
+                as="h1"
+                className="mb-6"
+              >
                 NeoSpace Storage
-              </NeoBrutalistText>
+              </GlowingText>
               
-              <NeoBrutalistText variant="subtitle" color="secondary" className="max-w-3xl mx-auto leading-relaxed">
+              <GlowingText 
+                variant="subheadline" 
+                color="pink" 
+                intensity="medium"
+                as="p"
+                className="max-w-3xl mx-auto leading-relaxed"
+              >
                 Experience the future of data management with our cutting-edge local storage platform. 
                 Built with 2025's most advanced technologies for unprecedented performance and user experience.
-              </NeoBrutalistText>
+              </GlowingText>
             </div>
           </ImmersiveScrollSection>
 
@@ -202,9 +215,9 @@ const Index = () => {
                     <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
                       <Save className="w-5 h-5 text-white" />
                     </div>
-                    <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                    <GlowingText variant="accent" color="emerald" intensity="medium">
                       Data Input Hub
-                    </span>
+                    </GlowingText>
                   </CardTitle>
                   <CardDescription className="text-gray-400 text-lg">
                     Store encrypted key-value pairs with advanced security protocols
@@ -265,9 +278,9 @@ const Index = () => {
                     <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
                       <Database className="w-5 h-5 text-white" />
                     </div>
-                    <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                    <GlowingText variant="accent" color="purple" intensity="medium">
                       Storage Analytics
-                    </span>
+                    </GlowingText>
                     <div className="ml-auto bg-gradient-to-r from-purple-500/20 to-blue-500/20 px-3 py-1 rounded-full">
                       <span className="text-purple-300 text-sm font-medium">
                         {Object.keys(storedData).length} items
@@ -335,12 +348,12 @@ const Index = () => {
             className="space-y-8"
           >
             <div className="text-center space-y-4">
-              <NeoBrutalistText variant="h2" color="accent">
+              <GlowingText variant="headline" color="blue" intensity="high" as="h2" className="mb-4">
                 Next-Gen Features
-              </NeoBrutalistText>
-              <NeoBrutalistText variant="body" color="secondary" className="max-w-2xl mx-auto">
+              </GlowingText>
+              <GlowingText variant="subheadline" color="cyan" intensity="low" as="p" className="max-w-2xl mx-auto">
                 Powered by cutting-edge technologies and designed for the future of web development
-              </NeoBrutalistText>
+              </GlowingText>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -363,9 +376,15 @@ const Index = () => {
                         <feature.icon className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-bold text-xl text-white mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                        <GlowingText 
+                          variant="accent" 
+                          color="purple" 
+                          intensity="low" 
+                          as="h3" 
+                          className="mb-2 group-hover:scale-105 transition-transform duration-300"
+                        >
                           {feature.title}
-                        </h3>
+                        </GlowingText>
                         <p className="text-gray-400 leading-relaxed">
                           {feature.description}
                         </p>
@@ -385,9 +404,9 @@ const Index = () => {
             <Floating3DCard intensity="medium">
               <Card className="glass-dark border-white/10 shadow-2xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                  <GlowingText variant="accent" color="cyan" intensity="medium" as="h3" className="text-2xl">
                     2025 Technology Stack
-                  </CardTitle>
+                  </GlowingText>
                   <CardDescription className="text-gray-400 text-lg">
                     Built with tomorrow's technologies, available today
                   </CardDescription>
@@ -409,7 +428,9 @@ const Index = () => {
                           <Sparkles className="w-8 h-8 text-white" />
                         </div>
                         <div>
-                          <h4 className="font-bold text-white text-lg">{tech.name}</h4>
+                          <GlowingText variant="subtle" color="purple" intensity="low" as="h4" className="font-bold text-lg">
+                            {tech.name}
+                          </GlowingText>
                           <p className="text-gray-400 text-sm">{tech.desc}</p>
                         </div>
                       </div>
@@ -427,12 +448,12 @@ const Index = () => {
             className="text-center space-y-8"
           >
             <div className="space-y-6">
-              <NeoBrutalistText variant="h2" color="accent">
+              <GlowingText variant="headline" color="pink" intensity="high" as="h2" className="mb-4">
                 Ready to Experience the Future?
-              </NeoBrutalistText>
-              <NeoBrutalistText variant="body" color="secondary" className="max-w-2xl mx-auto">
+              </GlowingText>
+              <GlowingText variant="subheadline" color="purple" intensity="medium" as="p" className="max-w-2xl mx-auto">
                 Join thousands of developers already building with tomorrow's technology stack
-              </NeoBrutalistText>
+              </GlowingText>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
